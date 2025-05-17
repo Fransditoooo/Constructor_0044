@@ -40,3 +40,35 @@ public:
     friend void lihatStatistik(Admin a, Peminjam p);
 };
 
+class Petugas {
+private:
+    string nama;
+    int IDPetugas;
+    string levelAkses;
+
+public:
+    Petugas(string n, int id, string akses) : nama(n), IDPetugas(id), levelAkses(akses) {}
+
+    void prosesPinjam(Buku &b, Peminjam &p) {
+        if (!b.dipinjam) {
+            b.dipinjam = true;
+            p.totalPinjaman++;
+            cout << "Buku dipinjam oleh: " << p.nama << endl;
+        } else {
+            cout << "Buku sedang dipinjam." << endl;
+        }
+    }
+
+    void prosesKembali(Buku &b, Peminjam &p) {
+        if (b.dipinjam) {
+            b.dipinjam = false;
+            p.totalPinjaman--;
+            cout << "Buku dikembalikan oleh: " << p.nama << endl;
+        } else {
+            cout << "Buku tidak sedang dipinjam." << endl;
+        }
+    }
+
+    friend class Admin;
+};
+
