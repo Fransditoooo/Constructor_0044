@@ -83,3 +83,12 @@ public:
     friend void lihatStatistik(Admin a, Peminjam p);
 };
 
+// Fungsi friend terbatas untuk Admin
+void lihatStatistik(Admin a, Buku b) {
+    cout << "[Statistik Buku] Status: " << (b.dipinjam ? "Dipinjam" : "Tersedia") << endl;
+}
+
+void lihatStatistik(Admin a, Peminjam p) {
+    cout << "[Statistik Peminjam] Total buku dipinjam: " << p.totalPinjaman << endl;
+}
+
