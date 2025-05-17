@@ -20,3 +20,7 @@ public:
 
 int mahasiswa::nim = 0;  // Static variable initialization
 
+void mahasiswa::setID() {
+    id = ++nim;
+}
+
