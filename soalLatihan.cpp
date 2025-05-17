@@ -92,3 +92,23 @@ void lihatStatistik(Admin a, Peminjam p) {
     cout << "[Statistik Peminjam] Total buku dipinjam: " << p.totalPinjaman << endl;
 }
 
+// --- Program utama untuk uji coba ---
+int main() {
+    Buku buku1("Pemrograman C++", "Budi");
+    Peminjam peminjam1("Andi", 101);
+    Petugas petugas1("Siti", 201, "normal");
+    Admin admin1;
+
+    buku1.tampilkanInfo();
+    peminjam1.tampilkanInfo();
+
+    petugas1.prosesPinjam(buku1, peminjam1);
+    admin1.ubahLevelAkses(petugas1, "admin");
+
+    lihatStatistik(admin1, buku1);
+    lihatStatistik(admin1, peminjam1);
+
+    petugas1.prosesKembali(buku1, peminjam1);
+
+    return 0;
+}
